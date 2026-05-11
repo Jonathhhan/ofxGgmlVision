@@ -15,12 +15,13 @@ Family map: https://jonathhhan.github.io/ofxGgmlCore/
 
 ## Example
 
-`ofxGgmlVisionImageExample` is a root-level image understanding request smoke test. Generate it with the openFrameworks projectGenerator using addons `ofxGgmlVision` and `ofxGgmlCore`.
+`ofxGgmlVisionImageExample` is a root-level image understanding request smoke test. Generate it with the openFrameworks projectGenerator using addons `ofxGgmlVision`, `ofxGgmlCore`, and `ofxImGui`.
 
 ## Dependencies
 
 - openFrameworks
 - `ofxGgmlCore`
+- `ofxImGui` for examples
 
 ## Validate
 
