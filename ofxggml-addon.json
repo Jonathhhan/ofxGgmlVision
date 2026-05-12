@@ -1,0 +1,25 @@
+{
+  "name": "ofxGgmlVision",
+  "lane": "vision",
+  "coreBaseline": "v1.0.1",
+  "requires": [
+    "ofxGgmlCore"
+  ],
+  "owns": [
+    "CLIP",
+    "image embeddings",
+    "captions",
+    "image understanding"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "backends": [
+    "cpu",
+    "cuda",
+    "metal",
+    "vulkan"
+  ]
+}
