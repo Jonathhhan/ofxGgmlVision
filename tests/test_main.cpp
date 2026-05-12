@@ -3,6 +3,15 @@
 #include <iostream>
 
 int main() {
+	if (OFXGGML_VISION_VERSION_MAJOR != 1 ||
+		OFXGGML_VISION_VERSION_MINOR != 0 ||
+		OFXGGML_VISION_VERSION_PATCH != 1 ||
+		std::string(OFXGGML_VISION_VERSION_STRING) != "1.0.1" ||
+		std::string(ofxGgmlVisionGetVersionString()) != "1.0.1") {
+		std::cerr << "unexpected vision addon version metadata\n";
+		return 1;
+	}
+
 	ofxGgmlVisionRequest request;
 	if (ofxGgmlVisionUtils::hasInput(request)) {
 		std::cerr << "empty request reported as configured\n";
