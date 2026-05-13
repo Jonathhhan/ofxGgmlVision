@@ -65,6 +65,10 @@ Assert-Path (Join-Path $exampleRoot "src\ofApp.h") "smoke example ofApp.h"
 Assert-Path (Join-Path $exampleRoot "src\ofApp.cpp") "smoke example ofApp.cpp"
 Assert-Path (Join-Path $addonRoot "tests\CMakeLists.txt") "test CMakeLists"
 Assert-Path (Join-Path $addonRoot "tests\test_main.cpp") "test source"
+Assert-Path (Join-Path $scriptRoot "doctor-vision.ps1") "Vision doctor script"
+Assert-Path (Join-Path $scriptRoot "doctor-vision.bat") "Vision doctor Windows wrapper"
+Assert-Path (Join-Path $scriptRoot "doctor-vision.sh") "Vision doctor shell wrapper"
+Assert-Path (Join-Path $scriptRoot "test-doctor-vision.ps1") "Vision doctor smoke test"
 
 $nestedExamples = Join-Path $addonRoot "examples"
 if (Test-Path -LiteralPath $nestedExamples -PathType Container) {
@@ -86,6 +90,12 @@ foreach ($relative in $forbidden) {
 	if (Test-Path -LiteralPath $path) {
 		throw "Generated or local-only path should not be committed here: $relative"
 	}
+}
+
+Write-Step "Checking Vision doctor"
+& (Join-Path $scriptRoot "test-doctor-vision.ps1")
+if (!$?) {
+	throw "Vision doctor smoke test failed"
 }
 
 Write-Step "Running headless tests"
