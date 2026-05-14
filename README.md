@@ -19,6 +19,10 @@ Current addon API version: `1.0.1`.
 
 `ofxGgmlVisionImageExample` is a root-level image understanding request smoke test. Generate it with the openFrameworks projectGenerator using addons `ofxGgmlVision`, `ofxGgmlCore`, and `ofxImGui`.
 
+## Agent Workflows
+
+Use [`docs/VISION_WORKFLOWS.md`](docs/VISION_WORKFLOWS.md) when planning Codex, Copilot, or Hermes changes for image understanding, CLIP-style embeddings, captions, VLM-style workflows, and visual search.
+
 ## Dependencies
 
 - openFrameworks
