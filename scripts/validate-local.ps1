@@ -74,6 +74,10 @@ Assert-Path (Join-Path $scriptRoot "doctor-vision.ps1") "Vision doctor script"
 Assert-Path (Join-Path $scriptRoot "doctor-vision.bat") "Vision doctor Windows wrapper"
 Assert-Path (Join-Path $scriptRoot "doctor-vision.sh") "Vision doctor shell wrapper"
 Assert-Path (Join-Path $scriptRoot "test-doctor-vision.ps1") "Vision doctor smoke test"
+Assert-Path (Join-Path $scriptRoot "run-vision-runtime-smoke.ps1") "Vision runtime smoke script"
+Assert-Path (Join-Path $scriptRoot "run-vision-runtime-smoke.bat") "Vision runtime smoke Windows wrapper"
+Assert-Path (Join-Path $scriptRoot "run-vision-runtime-smoke.sh") "Vision runtime smoke shell wrapper"
+Assert-Path (Join-Path $scriptRoot "test-vision-runtime-smoke.ps1") "Vision runtime smoke contract test"
 
 $nestedExamples = Join-Path $addonRoot "examples"
 if (Test-Path -LiteralPath $nestedExamples -PathType Container) {
@@ -102,6 +106,9 @@ Write-Step "Checking Vision doctor"
 if (!$?) {
 	throw "Vision doctor smoke test failed"
 }
+
+Write-Step "Checking Vision runtime smoke contract"
+& (Join-Path $scriptRoot "test-vision-runtime-smoke.ps1")
 
 Write-Step "Running headless tests"
 & (Join-Path $scriptRoot "test-addon.ps1")
