@@ -45,9 +45,15 @@ Run the smallest validation command that proves the change:
 1. Documentation or planning changes: `scripts\validate-local.bat`
 2. Doctor behavior changes: `scripts\doctor-vision.bat`
 3. Request/result helper changes: `scripts\test-addon.bat`
-4. Example layout or generated-artifact policy changes: `scripts\validate-local.bat`
+4. Ecosystem runtime smoke evidence: `scripts\run-vision-runtime-smoke.bat -Json -SummaryOnly`
+5. Example layout or generated-artifact policy changes: `scripts\validate-local.bat`
 
 When a workflow needs local model files or input media, document their expected location without committing them. Generated artifacts remain local-only.
+
+`scripts\run-vision-runtime-smoke.*` is intentionally request-boundary-only
+until this addon owns a real local vision backend. It compiles and runs the
+deterministic helper tests, checks doctor readiness, and emits JSON for Core
+planning without downloading models or committing sample media.
 
 ## Safe First Tasks
 
