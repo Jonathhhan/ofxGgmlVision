@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxGgmlVision.h"
+#include "ofxImGui.h"
 
 class ofApp : public ofBaseApp {
 public:
@@ -11,4 +12,5 @@ public:
 private:
 	ofxGgmlVisionRequest request;
 	std::string status;
+	ofxImGui::Gui gui;
 };
